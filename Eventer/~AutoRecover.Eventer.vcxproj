@@ -89,7 +89,7 @@
       <ImportLibrary>..\out\bin\Debug-windowsx86_64\Eventer\Eventer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul)</Command>
+      <Command>IF EXIST ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Debug-windowsx86_64\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Debug-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Debug-windowsx86_64\TestingApp &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -113,7 +113,7 @@
       <ImportLibrary>..\out\bin\Release-windowsx86_64\Eventer\Eventer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul)</Command>
+      <Command>IF EXIST ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Release-windowsx86_64\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Release-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Release-windowsx86_64\TestingApp &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -137,11 +137,13 @@
       <ImportLibrary>..\out\bin\Dist-windowsx86_64\Eventer\Eventer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll ..\TestingApp &gt; nul)</Command>
+      <Command>IF EXIST ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll\ (xcopy /Q /E /Y /I ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Dist-windowsx86_64\TestingApp &gt; nul) ELSE (xcopy /Q /Y /I ..\out\bin\Dist-windowsx86_64\Eventer\Eventer.dll ..\out\bin\Dist-windowsx86_64\TestingApp &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Src\EventSystem.h" />
+    <ClInclude Include="src\DllSupport.h" />
+    <ClInclude Include="src\EventSystem.h" />
+    <ClInclude Include="src\Include.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
