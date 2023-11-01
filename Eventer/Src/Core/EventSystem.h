@@ -57,13 +57,16 @@ namespace Eventer
 		SINGLE = 1, //Queue events and dispatch a single event per call to Update().
 		ALL = 2 //Queue events and dispatch all queued events per call to Update(). 
 	};
-#define EVENTER_USE_FUNCTIONAL
-#ifdef EVENTER_USE_FUNCTIONAL
+	
 	template<typename T>
 	using EventCallback = std::function<void(T*)>;
-#else
 	
-#endif
+	template<typename C, typename T>
+	Eventer::EventCallback<T> MakeFunction(void(C::* FN)(T*), C* Parent)
+	{
+		Eventer::EventCallback<T> Function = std::bind(FN, Parent, std::placeholders::_1);
+		return Function;
+	}
 	
 	//EventDispatcher class. This class is used to dispatch events of a specific type to listeners.
 	template<typename T>

@@ -9,14 +9,16 @@ public:
 	void BindEvents()
 	{
 		Eventer::EventDispatcher<Eventer::KeyboardEvent>* KeyDispatcher = Eventer::EventDispatcher<Eventer::KeyboardEvent>::GetInstance();
-		KeyDispatcher->AddListener("W_KeyDown", [=](Eventer::KeyboardEvent* Evt) {this->TestEvent(Evt); } );
+		void(TestingClass::* FN)(Eventer::KeyboardEvent*) = &TestingClass::TestEvent;
+		KeyDispatcher->AddListener("W_KeyDown", MakeFunction(FN, this));
 	}
 
 	void TestEvent(Eventer::KeyboardEvent* Event)
 	{
-		std::cout << Event->GetName() << " Event has keycode: " << Event->GetKeyCode() << std::endl;
+		std::cout << Event->GetName() << " Event has keycode: " << Event->GetKeyCode() << ". And checking class with: " << code << std::endl;
 		Event->HandleEvent();
 	}
+	int code = 0;
 };
 
 int main()
@@ -25,6 +27,7 @@ int main()
 	
 	TC.BindEvents();
 	
+	TC.code = 1;
 	Eventer::EventDispatcher<Eventer::KeyboardEvent>* KeyDispatcher = Eventer::EventDispatcher<Eventer::KeyboardEvent>::GetInstance();
 	
 	Eventer::KeyboardEvent KeyEvent("W_KeyDown", 87, Eventer::ButtonMode::Pressed);
