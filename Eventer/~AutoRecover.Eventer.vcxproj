@@ -141,9 +141,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\DllSupport.h" />
-    <ClInclude Include="src\EventSystem.h" />
-    <ClInclude Include="src\Include.h" />
+    <ClInclude Include="Src\Core\DllSupport.h" />
+    <ClInclude Include="Src\Core\EventSystem.h" />
+    <ClInclude Include="Src\Core\Include.h" />
+    <ClInclude Include="Src\Premade\InputEventController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

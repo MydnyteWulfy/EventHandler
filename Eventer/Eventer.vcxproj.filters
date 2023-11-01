@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Src\EventSystem.h" />
-    <ClInclude Include="src\DllSupport.h" />
-    <ClInclude Include="src\Include.h" />
+    <ClInclude Include="Src\Core\EventSystem.h" />
+    <ClInclude Include="Src\Core\DllSupport.h" />
+    <ClInclude Include="Src\Core\Include.h" />
+    <ClInclude Include="Src\Premade\BasicInput.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Source.cpp" />
+    <ClCompile Include="Src\Premade\BasicInput.cpp" />
   </ItemGroup>
 </Project>
